@@ -1,5 +1,4 @@
 name: DreamMOTDBungee
 main: net.perfectdreams.dreammotdbungee.DreamMOTDBungee
 version: 1.0.0
-softdepend: ["DreamCoreBungee"]
-api-version: 1.13
+softdepends: ["DreamCoreBungee"]

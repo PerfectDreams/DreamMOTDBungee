@@ -3,8 +3,8 @@ package net.perfectdreams.dreammotdbungee
 import net.md_5.bungee.api.Favicon
 import net.md_5.bungee.api.event.ProxyPingEvent
 import net.md_5.bungee.api.plugin.Listener
-import net.md_5.bungee.api.plugin.Plugin
 import net.md_5.bungee.event.EventHandler
+import net.perfectdreams.dreamcorebungee.KotlinPlugin
 import net.perfectdreams.dreamcorebungee.utils.DreamUtils
 import net.perfectdreams.dreamcorebungee.utils.TextUtils
 import net.perfectdreams.dreamcorebungee.utils.extensions.toTextComponent
@@ -12,13 +12,15 @@ import net.perfectdreams.dreammotdbungee.commands.DreamMOTDBungeeCommand
 import java.io.File
 import javax.imageio.ImageIO
 
-class DreamMOTDBungee : Plugin(), Listener {
+class DreamMOTDBungee : KotlinPlugin(), Listener {
 	val favicons = mutableListOf<Favicon>()
 
 	override fun onEnable() {
 		super.onEnable()
 		this.proxy.pluginManager.registerListener(this, this)
-		DreamMOTDBungeeCommand(this).register(this)
+		registerCommand(
+				DreamMOTDBungeeCommand(this)
+		)
 		loadFavicons()
 	}
 
